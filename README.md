@@ -1,100 +1,60 @@
 # dart_aoai_rt_connection
 
-A 
+A Flutter application for real-time audio recording, processing, and communication using WebSockets and OpenAI’s API.
 
 ## Getting Started
 
-
-
-This project is a starting point for a Flutter application.
-.
-
-:
 ### Steps to Run the Application
-
--
-
 
 1. **Clone the Repository**: Clone this repository to your local machine.
 
-[on    ```bash
-
-samp    git clone <repository-url>
-
+    ```bash
+    git clone <repository-url>
     ```
 
 2. **Install Dependencies**: Navigate to the project directory and run the following command to install the required dependencies.
 
-   
-    flutt
+    ```bash
+    flutter pub get
     ```
 
+3. **Configure Android Permissions**: Ensure that you have assigned the necessary permissions in the `AndroidManifest.xml` file for storage and microphone access. Add the following permissions if they are not already present:
 
-er pu
-3
+    ```xml
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    ```
 
-    <u
- 
+4. **Configure WebSocket URL**: In your Dart code, replace the placeholders in the WebSocket URL with the required variables such as the endpoint, deployment name, API key, and API version.
 
-    ``
+    ```dart
+    _channel = IOWebSocketChannel.connect(
+      'wss://<endpoint-url>/openai/realtime?api-version=2024-10-01-preview&deployment=<deployment-name>&api-key=<api-key>');
+    ```
 
-4
-    ``
+    - `<endpoint-url>`: Your WebSocket server endpoint.
+    - `<deployment-name>`: The deployment name for the service.
+    - `<api-key>`: Your API key.
+    - `<api-version>`: The API version you are using.
 
+5. **Run the Application**: Use the following command to run the Flutter app on your device or emulator.
 
+    ```bash
+    flutter run
+    ```
 
-
-    
-
-
-
-
-
-   
-
-
-
-
-
-
-- 
-
-
-
-
-
-
-
--
-
-
-For help getting started with Flutter development, view the [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on mobile development, and a full API reference.
- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-
-A few resources to get you started if this is your first Flutter project:
+6. **Using the Application**: After the application runs successfully, you will see a screen with buttons:
+    - **Start Session**: Starts the WebSocket session for audio communication.
+    - **Stop Session**: Ends the WebSocket session.
+    - **Start Recording**: Begins recording audio from the microphone.
+    - **Stop Recording**: Stops recording and sends the audio data to the server.
 
 ### Additional Resources
-Use the **Stop Recording** button to process the recorded audio.
-- Use the **Start Recording** button to begin recording audio.
-- Once the application is running successfully, you will see a screen where the session will automatically start.
 
-### Using the Application
- ```
-    flutter run
-    ```bash
-5. **Run the Application**: Use the following command to run the application.
-```
-      'wss://<endpoint-url>/openai/realtime?api-version=2024-10-01-preview&deployment=<deployment-name>&api-key=<api-key>');
-    _channel = IOWebSocketChannel.connect(
-`dart
-. **Configure WebSocket**: Replace the placeholders in the WebSocket URL with the required variables such as endpoint, deployment name, and API key.
+- [Flutter Documentation](https://docs.flutter.dev/)
+- [Flutter Samples](https://docs.flutter.dev/cookbook)
+- [OpenAI API Documentation](https://platform.openai.com/docs/)
+  
+For help getting started with Flutter development, view the [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, and a full API reference.
 
-`
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-ses-permission android:name="android.permission.RECORD_AUDIO"/>
-    ```xml
-. **Set Permissions**: Ensure that you have assigned the necessary permissions in the `AndroidManifest.xml` file for storage and microphone access.
-b get
- ```bash
